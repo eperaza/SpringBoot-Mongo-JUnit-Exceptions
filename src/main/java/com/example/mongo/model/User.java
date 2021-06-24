@@ -7,9 +7,20 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Component
 @Document(collection="user")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Transient
     @Id
@@ -36,6 +47,5 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
     
 }

@@ -1,10 +1,9 @@
 package com.example.mongo.controller;
 
 import java.util.List;
-
 import com.example.mongo.apierror.CustomException;
 import com.example.mongo.model.User;
-import com.example.mongo.service.UserService;
+import com.example.mongo.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DataController {
 
     @Autowired
-    UserService userService;
+    IUserService userService;
     
     @PostMapping(path="/add")
     public ResponseEntity<Object> addUser(@RequestParam String name, @RequestParam String email){
@@ -46,6 +45,7 @@ public class DataController {
 	@GetMapping(path="/findbyid")
     public ResponseEntity<Object> findById(@RequestParam String id) throws CustomException{
 		User response = userService.findById(id);
+		System.out.println("Getting row with id: "+response);
 		return new ResponseEntity<Object>(response, HttpStatus.OK);
 	}
     /*
