@@ -42,7 +42,7 @@ public class UserService implements IUserService {
     public User findById(String id) throws CustomException{ 
         
         Optional<User> user = repo.findById(id);
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
 			throw new CustomException("User not found for given id: " + id + "", HttpStatus.NOT_FOUND);
 		}
         n=user.get();
