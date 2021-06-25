@@ -6,11 +6,17 @@ pipeline {
     }
     stages {
         
-
         stage ("Build") {
             steps {
                 sh "mvn clean compile"
-                echo "This is a minimal pipeline."
+                echo "Building..."
+            }
+        }
+
+        stage ("Test") {
+            steps {
+                sh "mvn test"
+                echo "Testing..."
             }
         }
     }
