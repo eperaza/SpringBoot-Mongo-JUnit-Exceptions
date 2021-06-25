@@ -9,6 +9,7 @@ pipeline {
 
         stage ("Build") {
             steps {
+                sh "mvn clean compile"
                 echo "This is a minimal pipeline."
             }
         }
