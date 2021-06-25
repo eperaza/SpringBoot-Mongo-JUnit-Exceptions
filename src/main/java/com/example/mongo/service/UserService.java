@@ -42,6 +42,7 @@ public class UserService implements IUserService {
     public User findById(String id) throws CustomException{ 
         
         Optional<User> user = repo.findById(id);
+        // isEmpty() only for Java 11
         if (!user.isPresent()) {
 			throw new CustomException("User not found for given id: " + id + "", HttpStatus.NOT_FOUND);
 		}
