@@ -32,11 +32,15 @@ public class UserService implements IUserService {
     @Override
     public String update(String id, String name, String email){ 
         Optional<User> user = repo.findById(id);
-        n=user.get();
-        n.setName(name);
-        n.setEmail(email);
-        repo.save(n);
-        return "Updated";
+        if (user.isPresent()) {
+            n=user.get();
+            n.setName(name);
+            n.setEmail(email);
+            repo.save(n);
+            return "Updated";
+        }
+        else return "Update Failed";
+        
     }
     @Override
     public User findById(String id) throws CustomException{ 
