@@ -18,7 +18,7 @@ pipeline {
                                 error "Pipeline aborted due to quality failure: ${qg.status}"
                             }
                     }
-                    sh "mvn clean compile"
+                    sh "mvn clean compile test"
                 }
             }
         }
