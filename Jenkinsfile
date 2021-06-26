@@ -16,13 +16,13 @@ pipeline {
                         def qg = waitForQualityGate()
                             if(qg.status != "OK"){
                                 error "Pipeline aborted due to quality failure: ${qg.status}"
+                                return "Quality Check Failed"
                             }
                     }
-                    sh "mvn clean compile test"
                 }
             }
         }
-        /*
+        
         stage ("Build") {
             steps {
                 sh "mvn clean compile"
@@ -35,6 +35,6 @@ pipeline {
                 sh "mvn test"
                 echo "Testing..."
             }
-        }*/
+        }
     }
 }
