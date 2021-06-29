@@ -41,7 +41,8 @@ pipeline {
             steps {
                 sh "mvn install"
                 ansiblePlaybook(
-                    playbook: '/var/lib/docker/volumes/jenkins/_data/workspace/mvn-sonar/mongopb.yml'
+                    playbook: '/mongopb.yml',
+                    colorized:true
                 )
                 echo "Deploying..."
             }
