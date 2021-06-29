@@ -40,6 +40,9 @@ pipeline {
         stage ("Deploy") {
             steps {
                 sh "mvn install"
+                ansiblePlaybook(
+                    playbook: 'home/ubuntu/Documents/playbooks/mongopb.yml'
+                )
                 echo "Deploying..."
             }
         }
