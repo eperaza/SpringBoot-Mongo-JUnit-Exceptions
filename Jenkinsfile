@@ -36,5 +36,12 @@ pipeline {
                 echo "Testing..."
             }
         }
+
+        stage ("Deploy") {
+            steps {
+                sh "mvn install"
+                echo "Deploying..."
+            }
+        }
     }
 }
