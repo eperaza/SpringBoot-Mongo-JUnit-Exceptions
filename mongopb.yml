@@ -1,6 +1,13 @@
 ---
-- hosts: production
+ 
+- name: Deploy the application to the "production" server
+  hosts: production
+  remote_user: ubuntu
+  become: yes
   tasks:
-    - name: Print message
-      debug:
-        msg: Hello Ansible World
+    - name: Create the application directory
+      file:
+        path: /home/ubuntu/mongo
+        state: directory
+        owner: ubuntu
+        group: ubuntu
