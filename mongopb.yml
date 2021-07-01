@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: production
   tasks:
     - name: Print message
       debug:
