@@ -40,12 +40,15 @@ pipeline {
         stage ("Deploy") {
             steps {
                 sh "mvn install"
-                ansiblePlaybook(
-                    playbook: "/var/jenkins_home/workspace/mvn-sonar/mongopb.yml",
-                    disableHostKeyChecking: true,
-                    colorized:true
-                )
-                echo "Deploying..."
+                ansiColor('xterm') {
+
+                    ansiblePlaybook(
+                        playbook: "/var/jenkins_home/workspace/mvn-sonar/mongopb.yml",
+                        disableHostKeyChecking: true,
+                        colorized:true
+                    )
+                    echo "Deploying..."
+                }
             }
         }
     }
