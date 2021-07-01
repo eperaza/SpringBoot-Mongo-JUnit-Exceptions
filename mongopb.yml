@@ -11,3 +11,10 @@
         state: directory
         owner: ubuntu
         group: ubuntu
+    - name: Copy jar file over
+      copy:
+        src: /var/jenkins_home/workspace/mvn-sonar/target/mongo-0.0.1-SNAPSHOT.jar
+        dest: /home/ubuntu/mongo
+        owner: ubuntu
+        group: ubuntu
+      
