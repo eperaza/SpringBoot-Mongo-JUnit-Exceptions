@@ -41,7 +41,6 @@ pipeline {
             steps {
                 sh "mvn install"
                 ansiColor('xterm') {
-
                     ansiblePlaybook(
                         playbook: "/var/jenkins_home/workspace/mvn-sonar/mongopb.yml",
                         disableHostKeyChecking: true,
