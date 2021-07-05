@@ -60,11 +60,12 @@ public class MongoApplicationTests {
 	public void setUp() throws Exception{
 		MockitoAnnotations.openMocks(this);
 	}
-
+	/*
 	@Test
 	public void contextLoads() {
+		
 	}
-
+	*/
 	@Test
 	public void findAllTest() throws IOException {
 
