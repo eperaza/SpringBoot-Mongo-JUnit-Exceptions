@@ -45,7 +45,7 @@ public class DataController {
 	@GetMapping(path="/findbyid")
     public ResponseEntity<Object> findById(@RequestParam String id) throws CustomException{
 		User response = userService.findById(id);
-		System.out.println("Getting row with id: "+response);
+		//System.out.println("Getting row with id: "+response);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     /*
