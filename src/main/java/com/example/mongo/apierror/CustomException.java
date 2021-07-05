@@ -6,8 +6,8 @@ public class CustomException extends Exception{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String message;
-	private HttpStatus status;
+	private final String message;
+	private final HttpStatus status;
 	
 	public CustomException(String message, HttpStatus status) {
 		super();
@@ -15,17 +15,14 @@ public class CustomException extends Exception{
 		this.status = status;
 	}
 	
+	@Override
 	public String getMessage() {
 		return message;
 	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	
 	public HttpStatus getStatus() {
 		return status;
 	}
-	public void setStatus(HttpStatus status) {
-		this.status = status;
-	}
+	
 	
 }
