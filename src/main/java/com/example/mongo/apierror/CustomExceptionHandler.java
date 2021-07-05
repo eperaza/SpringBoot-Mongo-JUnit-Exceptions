@@ -12,7 +12,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler{
 	@ExceptionHandler(CustomException.class)
     public ResponseEntity<String> customExceptionHandle(CustomException ex, WebRequest request) {
 
-        return new ResponseEntity<String>(ex.getMessage(), ex.getStatus());
+        return new ResponseEntity<>(ex.getMessage(), ex.getStatus());
     
     }
     

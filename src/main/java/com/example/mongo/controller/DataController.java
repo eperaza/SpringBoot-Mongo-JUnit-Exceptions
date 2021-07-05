@@ -38,7 +38,7 @@ public class DataController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     @PutMapping(path="/update")
-    public ResponseEntity<Object> update(@RequestParam String id, @RequestParam String name, @RequestParam String email) throws CustomException{
+    public ResponseEntity<Object> update(@RequestParam String id, @RequestParam String name, @RequestParam String email){
 		String response = userService.update(id, name, email);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

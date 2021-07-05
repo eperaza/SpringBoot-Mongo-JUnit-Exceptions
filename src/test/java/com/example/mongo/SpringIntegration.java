@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 @CucumberContextConfiguration
 @SpringBootTest (classes = MongoApplication.class, webEnvironment = WebEnvironment.DEFINED_PORT)
-public class SpringIntegrationTest {
+public class SpringIntegration {
     static ResponseResults latestResponse = null;
 
     @Autowired

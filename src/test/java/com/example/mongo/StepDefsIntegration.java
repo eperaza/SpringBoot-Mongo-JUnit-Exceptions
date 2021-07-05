@@ -18,7 +18,7 @@ import org.mockito.internal.matchers.GreaterThan;
 import java.util.List;
 import com.example.mongo.model.User;
 
-public class StepDefsIntegrationTest extends SpringIntegrationTest {
+public class StepDefsIntegration extends SpringIntegration {
     
     @Given("the client calls /findall")
     public void the_client_calls_findall() throws Throwable {
