@@ -29,24 +29,24 @@ public class DataController {
     @PostMapping(path="/add")
     public ResponseEntity<Object> addUser(@RequestParam String name, @RequestParam String email){
 		String response = userService.addUser(name, email);
-		return new ResponseEntity<Object>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     
     @GetMapping(path="/findall")
     public ResponseEntity<Object> findAll(){
 		List<User> response = userService.findAll();
-		return new ResponseEntity<Object>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     @PutMapping(path="/update")
     public ResponseEntity<Object> update(@RequestParam String id, @RequestParam String name, @RequestParam String email) throws CustomException{
 		String response = userService.update(id, name, email);
-		return new ResponseEntity<Object>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	@GetMapping(path="/findbyid")
     public ResponseEntity<Object> findById(@RequestParam String id) throws CustomException{
 		User response = userService.findById(id);
 		System.out.println("Getting row with id: "+response);
-		return new ResponseEntity<Object>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     /*
     @DeleteMapping(path="/delete")
