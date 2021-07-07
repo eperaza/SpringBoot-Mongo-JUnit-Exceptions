@@ -17,16 +17,16 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     @Override
     protected String getDatabaseName() {
         return "admin";
-    }/*
+    }
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/admin");
+        ConnectionString connectionString = new ConnectionString("mongodb://52.39.1.101:27017/admin");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
             .build();
         
         return MongoClients.create(mongoClientSettings);
-    }*/
+    }
     
     @Override
     public Collection<String> getMappingBasePackages() {
