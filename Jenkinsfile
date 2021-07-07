@@ -19,6 +19,13 @@ pipeline {
             }
         }
 
+        stage ("Test") {
+            steps {
+                sh "mvn test"
+                echo "Testing..."
+            }
+        }
+
         stage("SonarQube Quality Gate Check"){
             steps{
                 script{
@@ -38,12 +45,7 @@ pipeline {
         
         
 
-        stage ("Test") {
-            steps {
-                sh "mvn test"
-                echo "Testing..."
-            }
-        }
+        
 
         stage ("Deploy") {
             steps {
