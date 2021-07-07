@@ -21,7 +21,7 @@ public class StepDefsIntegration extends SpringIntegration {
     
     @Given("the client calls /findall")
     public void the_client_calls_findall() throws Throwable {
-        executeGet("http://localhost:8080/api/findall");
+        executeGet("http://localhost:8087/api/findall");
     }
 
     @When("^the client receives status code of (\\d+)$")
