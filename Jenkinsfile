@@ -6,6 +6,19 @@ pipeline {
     }
     stages {
 
+        stage ("Build") {
+            steps {
+                sh "mvn clean compile"
+                echo "Building..."
+                jacoco( 
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
+                )
+            }
+        }
+
         stage("SonarQube Quality Gate Check"){
             steps{
                 script{
@@ -23,12 +36,7 @@ pipeline {
             }
         }
         
-        stage ("Build") {
-            steps {
-                sh "mvn clean compile"
-                echo "Building..."
-            }
-        }
+        
 
         stage ("Test") {
             steps {
