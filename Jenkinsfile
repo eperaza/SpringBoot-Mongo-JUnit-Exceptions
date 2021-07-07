@@ -10,7 +10,12 @@ pipeline {
             steps {
                 sh "mvn clean compile"
                 echo "Building..."
-            
+                jacoco( 
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
+                )
             }
         }
 
