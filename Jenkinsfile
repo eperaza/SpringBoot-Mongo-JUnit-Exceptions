@@ -21,11 +21,11 @@ pipeline {
 
         stage ("Test") {
             steps {
-                sh "mvn test"
+                sh "mvn test verify"
                 echo "Testing..."
             }
         }
-
+        
         stage("SonarQube Quality Gate Check"){
             steps{
                 script{
