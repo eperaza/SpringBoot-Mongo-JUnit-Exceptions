@@ -7,7 +7,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import static org.hamcrest.MatcherAssert.assertThat;
