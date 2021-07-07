@@ -31,6 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -55,7 +56,7 @@ public class MongoApplicationTests {
 	@Autowired                           
     private DataController controller;  
                                                  
-    @MockBean                           
+    @MockBean                          
     private UserService userService; 
                                                
     private List<User> userList;       
@@ -66,13 +67,21 @@ public class MongoApplicationTests {
 	   	this.userList.add(new User("123", "user1@gmail.com", "pwd1"));   
 		this.userList.add(new User("321314", "user2@gmail.com", "pwd2"));
 		this.userList.add(new User("12312", "user3@gmail.com", "pwd3"));                                                       
- 
     }
 
 	@Test
-	public void findAllTest() throws IOException{
+	public void findAll() throws IOException{
 		when(userService.findAll()).thenReturn(userList);
 		ResponseEntity<Object> response = controller.findAll();
-		assertEquals(("200 OK"), response.getStatusCode().toString());
+		assertNotNull(response);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+
+	@Test
+	public void addUser() throws IOException{
+		when(userService.addUser("rafa","x@x.com")).thenReturn("Saved");
+		ResponseEntity<Object> response = controller.addUser("rafa","x@x.com");
+		assertNotNull(response);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 }

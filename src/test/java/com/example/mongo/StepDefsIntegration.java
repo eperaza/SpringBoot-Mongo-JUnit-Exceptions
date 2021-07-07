@@ -35,6 +35,6 @@ public class StepDefsIntegration extends SpringIntegration {
     public void the_client_receives_size_of(Integer size) throws Throwable {
         JSONArray jsnobject = new JSONArray(latestResponse.getBody());
         System.out.println(size);
-        assertThat(String.valueOf(jsnobject.length()), is("3")); 
+        assertThat(String.valueOf(jsnobject.length()), is("10")); 
     }
 }
