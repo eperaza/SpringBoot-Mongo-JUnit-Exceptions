@@ -96,7 +96,7 @@ public class MongoApplicationTests {
 	@Test
 	public void findById() throws IOException, CustomException{
 		when(userService.findById("1234")).thenReturn(new User("1234", "user1@gmail.com", "pwd1"));
-		ResponseEntity<Object> response = controller.addUser("rafa","x@x.com");
+		ResponseEntity<Object> response = controller.findById("1234");
 		assertNotNull(response);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
