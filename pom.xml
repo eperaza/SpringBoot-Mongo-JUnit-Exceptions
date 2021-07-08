@@ -140,11 +140,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-                    <excludes>
-                        <exclude>**/User*.*</exclude>
-                    </excludes>
-                </configuration>
 			</plugin>
 		</plugins>
 	</build>
