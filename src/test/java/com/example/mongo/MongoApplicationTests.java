@@ -64,7 +64,7 @@ public class MongoApplicationTests {
     @BeforeEach                           
     public void setUp() {                               
       	this.userList = new ArrayList<>();                                    
-	   	this.userList.add(new User("123", "user1@gmail.com", "pwd1"));   
+	   	this.userList.add(new User("1234", "user1@gmail.com", "pwd1"));   
 		this.userList.add(new User("321314", "user2@gmail.com", "pwd2"));
 		this.userList.add(new User("12312", "user3@gmail.com", "pwd3"));                                                       
     }
@@ -80,6 +80,22 @@ public class MongoApplicationTests {
 	@Test
 	public void addUser() throws IOException{
 		when(userService.addUser("rafa","x@x.com")).thenReturn("Saved");
+		ResponseEntity<Object> response = controller.addUser("rafa","x@x.com");
+		assertNotNull(response);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+
+	@Test
+	public void update() throws IOException{
+		when(userService.update("1234", "rafa", "x@x.com")).thenReturn("Updated");
+		ResponseEntity<Object> response = controller.update("1234", "rafa", "x@x.com");
+		assertNotNull(response);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+
+	@Test
+	public void findById() throws IOException, CustomException{
+		when(userService.findById("1234")).thenReturn(new User("1234", "user1@gmail.com", "pwd1"));
 		ResponseEntity<Object> response = controller.addUser("rafa","x@x.com");
 		assertNotNull(response);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
