@@ -23,6 +23,12 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         ConnectionString connectionString = new ConnectionString("mongodb://ec2-52-39-1-101.us-west-2.compute.amazonaws.com:27017/admin");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
+            /*
+            .applyToSslSettings(builder -> {
+                 builder.enabled(true);
+                 builder.invalidHostNameAllowed(true);
+            })
+            */
             .build();
         
         return MongoClients.create(mongoClientSettings);

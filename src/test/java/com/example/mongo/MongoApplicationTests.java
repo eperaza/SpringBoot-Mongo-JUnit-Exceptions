@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.apache.commons.io.IOUtils;
 
@@ -97,6 +98,7 @@ public class MongoApplicationTests {
 	public void findById() throws IOException, CustomException{
 		when(userService.findById("1234")).thenReturn(new User("1234", "user1@gmail.com", "pwd1"));
 		ResponseEntity<Object> response = controller.findById("1234");
+		verify(userService).findById("1234");
 		assertNotNull(response);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}

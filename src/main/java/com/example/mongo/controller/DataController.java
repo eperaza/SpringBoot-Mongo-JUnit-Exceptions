@@ -35,6 +35,7 @@ public class DataController {
     @GetMapping(path="/findall")
     public ResponseEntity<Object> findAll(){
 		List<User> response = userService.findAll();
+		//if (response.isEmpty()) return new ResponseEntity<>("empty", HttpStatus.NOT_FOUND);;
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
     @PutMapping(path="/update")

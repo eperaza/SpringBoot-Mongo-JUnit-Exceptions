@@ -2,8 +2,7 @@ package com.example.mongo;
 
 import org.springframework.http.HttpStatus;
 
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,7 +20,7 @@ public class StepDefsIntegration extends SpringIntegration {
     
     @Given("the client calls /findall")
     public void the_client_calls_findall() throws Throwable {
-        executeGet("http://localhost:8087/api/findall");
+        executeGet("https://localhost:8443/api/findall");
     }
 
     @When("^the client receives status code of (\\d+)$")
