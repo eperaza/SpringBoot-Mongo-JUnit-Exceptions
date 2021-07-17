@@ -52,8 +52,8 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
          };
         System.setProperty ("javax.net.ssl.keyStore", keyStore);
         System.setProperty ("javax.net.ssl.keyStorePassword","changeit"); 
-        System.setProperty("javax.net.ssl.trustStore","/etc/ssl/certs/java/cacerts");
-        System.setProperty("javax.net.ssl.trustStorePassword","changeit");
+        //System.setProperty("javax.net.ssl.trustStore","/etc/ssl/certs/java/cacerts");
+        //System.setProperty("javax.net.ssl.trustStorePassword","changeit");
         ConnectionString connectionString = new ConnectionString("mongodb://ec2-52-39-1-101.us-west-2.compute.amazonaws.com:27017/admin");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
@@ -85,19 +85,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         // All hosts will be valid
         HttpsURLConnection.setDefaultHostnameVerifier(validHosts);
         return MongoClients.create(mongoClientSettings);
-    }/*
-    public MongoClientSettings MongoClientSettings(MongoProperties properties, Environment environment) throws NoSuchAlgorithmException {
-        System.setProperty ("javax.net.ssl.keyStore","target/test-classes/xxx.pfx");
-        System.setProperty ("javax.net.ssl.keyStorePassword","changeit");  
-        SSLContext sslContext = SSLContext.getDefault();
-        MongoClientSettings.Builder builder = MongoClientSettings.builder();
-        builder.applyToSslSettings(b -> {
-        b.enabled(true);
-        b.context(sslContext);
-        });
-        new MongoPropertiesClientSettingsBuilderCustomizer(properties, environment).customize(builder);
-        return builder.build();
-  }*/
+    }
     
     @Override
     public Collection<String> getMappingBasePackages() {
