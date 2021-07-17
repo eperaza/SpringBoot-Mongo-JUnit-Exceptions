@@ -27,6 +27,8 @@ public class SSLConfig {
             channel.anyRequest().requiresSecure())
         .authorizeRequests(authorize ->
             authorize.anyRequest().permitAll())
+        //disable cross-checking in Spring Security to remove 403 forbidden response from server
+        .cors().and().csrf().disable()
         .build();
     }
 
