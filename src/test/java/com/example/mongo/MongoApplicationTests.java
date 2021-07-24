@@ -74,6 +74,7 @@ public class MongoApplicationTests {
 	public void findAll() throws IOException{
 		when(userService.findAll()).thenReturn(userList);
 		ResponseEntity<Object> response = controller.findAll();
+		System.out.println("respuesta"+response.getBody());
 		assertNotNull(response);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
